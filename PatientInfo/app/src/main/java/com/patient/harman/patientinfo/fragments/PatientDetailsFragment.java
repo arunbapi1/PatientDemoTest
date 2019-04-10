@@ -55,6 +55,13 @@ public class PatientDetailsFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         detailsViewModel = ViewModelProviders.of(getBaseActivity(), viewModelFactory).get(PatientDetailsViewModel.class);
+        displayPatientDetails();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(getString(R.string.patient_details));
     }
 
     private void displayPatientDetails() {
@@ -70,14 +77,14 @@ public class PatientDetailsFragment extends BaseFragment {
                 labelTextView.setVisibility(detailsModel.getNHSLabelVisibility());
                 valueTextView.setVisibility(detailsModel.getNHSValueVisibility());
 
-                 patientNameTextView.setText(detailsModel.getPatientName());
-                 clinicianTextView.setText(detailsModel.getClinician());
-                 locationTextView.setText(detailsModel.getLocation());
-                 stateTextView.setText(detailsModel.getSite());
-                 bayTextView.setText(detailsModel.getBay());
-                 bedTextView.setText(detailsModel.getBed());
-                 labelTextView.setText(detailsModel.getNHSLabel());
-                 valueTextView.setText(detailsModel.getNHSValue());
+                patientNameTextView.setText(detailsModel.getPatientName());
+                clinicianTextView.setText(detailsModel.getClinician());
+                locationTextView.setText(detailsModel.getLocation());
+                stateTextView.setText(detailsModel.getSite());
+                bayTextView.setText(detailsModel.getBay());
+                bedTextView.setText(detailsModel.getBed());
+                labelTextView.setText(detailsModel.getNHSLabel());
+                valueTextView.setText(detailsModel.getNHSValue());
             }
         });
     }

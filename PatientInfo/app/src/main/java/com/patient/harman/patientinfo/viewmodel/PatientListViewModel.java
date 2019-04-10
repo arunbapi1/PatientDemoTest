@@ -29,7 +29,10 @@ public class PatientListViewModel extends BaseViewModel {
         disposable = new CompositeDisposable();
     }
 
-    public void makePatientListCall(String teamId, String token, String baseUrl, JsonObject jsonBody) {
+    /*
+    * Method to get get all the Patient List by hitting API.
+    * */
+    public void makePatientListCall(String token, String baseUrl, JsonObject jsonBody) {
         getProgressDialog().postValue(true);
         disposable.add(repoRepository.getPatientList(token, baseUrl, jsonBody).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<PatientListData>() {

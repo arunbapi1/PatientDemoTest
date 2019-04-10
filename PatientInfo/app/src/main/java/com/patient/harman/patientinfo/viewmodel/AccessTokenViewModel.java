@@ -29,6 +29,9 @@ public class AccessTokenViewModel extends BaseViewModel {
         this.repoRepository = repoRepository;
     }
 
+    /*
+    * Method to get Access Token by hitting API.
+    * */
     public void makePassportTokenCall(String emailId, String password, String client_id, String redirect_uri, String response_type) {
         getProgressDialog().postValue(true);
         repoRepository.getAccessToken(emailId, password, client_id, redirect_uri, response_type).enqueue(new Callback<Void>() {

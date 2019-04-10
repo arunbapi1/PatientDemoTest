@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     /*
-     * Showing splash screen with a timer. On completion of time will show HomeScreen.
+     * Showing splash screen with a timer. On completion of time will show Patient List Screen.
      */
     private void showHomeScreen() {
         new Handler().postDelayed(new Runnable() {

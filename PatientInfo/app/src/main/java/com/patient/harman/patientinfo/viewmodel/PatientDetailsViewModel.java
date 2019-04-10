@@ -22,6 +22,9 @@ public class PatientDetailsViewModel extends BaseViewModel {
     public PatientDetailsViewModel() {
     }
 
+    /*
+    * Method to set required Patient Details.
+    * */
     public void setSelectedPatientDetails(Data data) {
         if (data != null) {
             patientDetails.setValue(data);

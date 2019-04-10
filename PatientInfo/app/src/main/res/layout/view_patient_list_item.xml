@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_4"
+        android:elevation="@dimen/cardview_elivation_4"
+        card_view:cardCornerRadius="@dimen/cardview_corner_radius_4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/cyan_blue"
+                android:textStyle="bold"
+                android:padding="@dimen/padding_15"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/text_size_24"
+                android:text="@string/patient_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/cyan_blue"
+                android:text=">"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_24"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_15"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

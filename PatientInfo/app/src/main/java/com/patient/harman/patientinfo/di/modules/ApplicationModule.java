@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module(includes = ViewModelModule.class)
 public class ApplicationModule {
 
-    private static final String BASE_URL = "https://appdevauth.doccom.me/";//"https://api.github.com/";
+    private static final String BASE_URL = "https://appdevauth.doccom.me/";
 
     @Singleton
     @Provides

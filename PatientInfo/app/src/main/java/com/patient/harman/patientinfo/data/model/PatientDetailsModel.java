@@ -14,6 +14,7 @@ public class PatientDetailsModel {
         this.data = data;
     }
 
+
     private boolean isDataAvailable() {
         return data != null ? true : false;
     }

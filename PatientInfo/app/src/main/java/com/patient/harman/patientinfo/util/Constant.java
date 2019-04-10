@@ -7,6 +7,7 @@ package com.patient.harman.patientinfo.util;
 public class Constant {
     private Constant() {
     }
+
     public static final String EMAIL_ID = "careflowinterviewcandidate@gmail.com";
     public static final String PASSWORD = "Car3F!0wT3st";
     public static final String CLIENT_ID = "DocComMobile";

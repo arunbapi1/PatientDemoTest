@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">PatientInfo</string>
+
+    <string name="ok_btn">Ok</string>
     <string name="internet_error_msg">No Internet Available. Please try again later!</string>
+
+    <string name="reservation_list_header_token">Bearer %s</string>
+    <string name="reservation_list_base_url">https://appdevapi.doccom.me/groups/%s/patients</string>
+
+    <string name="patient_list">Patient List</string>
+    <string name="patient_name">PATIENT NAME</string>
+
+    <string name="patient_details">Patient Details</string>
+    <string name="clinician">Clinician</string>
+    <string name="location">Location</string>
+    <string name="nhs_number">NHS Number</string>
 </resources>

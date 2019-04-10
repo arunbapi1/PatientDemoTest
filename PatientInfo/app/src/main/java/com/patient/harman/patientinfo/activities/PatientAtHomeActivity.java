@@ -20,7 +20,7 @@ public class PatientAtHomeActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             addFragment(new PatientListFragment(), R.id.container);
         }
     }

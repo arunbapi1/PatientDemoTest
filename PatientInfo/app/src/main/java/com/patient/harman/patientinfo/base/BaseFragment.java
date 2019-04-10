@@ -1,14 +1,16 @@
 package com.patient.harman.patientinfo.base;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +29,6 @@ import dagger.android.support.DaggerFragment;
 
 public abstract class BaseFragment extends DaggerFragment {
 
-    private ProgressDialog progressDialog;
     private Unbinder unbinder;
     private AppCompatActivity activity;
 
@@ -66,20 +67,11 @@ public abstract class BaseFragment extends DaggerFragment {
         }
     }
 
-    public void showProgressDialog() {
-        if (progressDialog != null && !progressDialog.isShowing()) {
-            progressDialog.show();
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(false);
-        }
-    }
-
-    protected void hideProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-    }
-
+    /*
+    * Method to check Network Connectivity.
+    *
+    * @return boolean.
+    * */
     protected boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
@@ -90,12 +82,16 @@ public abstract class BaseFragment extends DaggerFragment {
             return true;
     }
 
+    /*
+    *
+    * Method to show Alert if there is not NetWork.
+    * */
     private void showNetworkAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 // Add the buttons
         builder.setTitle(R.string.app_name);
-        builder.setMessage("Please check your internet connection");
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setMessage(getString(R.string.internet_error_msg));
+        builder.setPositiveButton(getString(R.string.ok_btn), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked OK button
                 activity.finish();
@@ -108,5 +104,20 @@ public abstract class BaseFragment extends DaggerFragment {
         dialog.show();
     }
 
+    /**
+     * Replace the fragment by the given one on the given container, adding the transaction to the back-stack.
+     *
+     * @param fragment
+     * @param containerId
+     */
+    public void replaceFragment(Fragment fragment, @IdRes int containerId) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(
+                R.anim.slide_in_from_right_fragment, R.anim.slide_out_to_left_fragment,
+                R.anim.slide_in_from_left_fragment, R.anim.slide_out_to_right_fragment);
+        transaction.replace(containerId, fragment, fragment.getClass().getSimpleName());
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }
 

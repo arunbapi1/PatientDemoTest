@@ -43,7 +43,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
     @NonNull
     @Override
     public PatientViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_repo_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_patient_list_item, parent, false);
         return new PatientViewHolder(view, patientSelectedListener);
     }
 
@@ -59,8 +59,8 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
     static final class PatientViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tv_patient_first_name)
-        TextView patientFirstNameTextView;
+        @BindView(R.id.tv_patient_name)
+        TextView patientNameTextView;
 
         private Data data;
 
@@ -77,7 +77,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         void bind(Data data, int count) {
             this.data = data;
 
-            patientFirstNameTextView.setText(new StringBuffer().append(count).append(". ").append(data.getPatientGivenName()).append(" ").append(data.getPatientFamilyName()));
+            patientNameTextView.setText(new StringBuffer().append(count).append(". ").append(data.getPatientGivenName()).append(" ").append(data.getPatientFamilyName()));
         }
     }
 }

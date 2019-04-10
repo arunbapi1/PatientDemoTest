@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PatientInfo</string>
+    <string name="internet_error_msg">No Internet Available. Please try again later!</string>
+</resources>
